@@ -5,16 +5,20 @@ import BusinessesList from "../../components/BusinessesList";
 import Pagination from "../../components/Pagination";
 import SearchBar from "../../components/SearchBar";
 import useDebounce from "../../hooks/useDebounce";
+import PriceFilter from "../../components/PriceFilter";
 
-type Props = {};
-
-const Homepage = (props: Props) => {
+const Homepage = () => {
   const [businesses, setBusinesses] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [filter, setFilter] = useState<{ attributes: string; offset: number }>({
+  const [filter, setFilter] = useState<{
+    attributes: string;
+    offset: number;
+    price: string;
+  }>({
     attributes: "",
     offset: 0,
+    price: "1,2,3,4",
   });
   const [pages, setPages] = useState<number>(1);
 
@@ -37,7 +41,7 @@ const Homepage = (props: Props) => {
 
   useEffect(() => {
     getBusiness();
-  }, [debouncedSearchTerm, filter.attributes, filter.offset]);
+  }, [debouncedSearchTerm, filter.attributes, filter.offset, filter.price]);
 
   const handleFilterAttributes = (values: string[]) =>
     setFilter((prev) => ({ ...prev, attributes: values.toString() }));
@@ -47,6 +51,12 @@ const Homepage = (props: Props) => {
     else setFilter((prev) => ({ ...prev, offset: 0 }));
   };
 
+  const handleFilterPrice = (values: number[]) => {
+    if (values.length === 0)
+      setFilter((prev) => ({ ...prev, price: "1,2,3,4" }));
+    else setFilter((prev) => ({ ...prev, price: values.toString() }));
+  };
+
   return (
     <div className="mx-8 py-12 lg:mx-auto max-w-6xl">
       <div className="flex flex-col gap-4">
@@ -54,6 +64,7 @@ const Homepage = (props: Props) => {
         <AttributesFilter
           onSelect={(values) => handleFilterAttributes(values)}
         />
+        <PriceFilter onSelect={(values) => handleFilterPrice(values)} />
         <BusinessesList isLoading={isLoading} businesses={businesses} />
         <Pagination
           totalPages={pages}

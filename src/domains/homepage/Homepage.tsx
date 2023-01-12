@@ -48,19 +48,17 @@ const Homepage = (props: Props) => {
   };
 
   return (
-    <div className="h-screen bg-neutral-50 font-robotoMono font-bold tracking-tight">
-      <div className="mx-8 py-12 lg:mx-auto max-w-6xl">
-        <div className="flex flex-col gap-4">
-          <SearchBar onChange={(e) => setSearchTerm(e.target.value)} />
-          <AttributesFilter
-            onSelect={(values) => handleFilterAttributes(values)}
-          />
-          <BusinessesList isLoading={isLoading} businesses={businesses} />
-          <Pagination
-            totalPages={pages}
-            onChange={(value) => handleChangePage(value as number)}
-          />
-        </div>
+    <div className="mx-8 py-12 lg:mx-auto max-w-6xl">
+      <div className="flex flex-col gap-4">
+        <SearchBar onChange={(e) => setSearchTerm(e.target.value)} />
+        <AttributesFilter
+          onSelect={(values) => handleFilterAttributes(values)}
+        />
+        <BusinessesList isLoading={isLoading} businesses={businesses} />
+        <Pagination
+          totalPages={pages}
+          onChange={(value) => handleChangePage(value as number)}
+        />
       </div>
     </div>
   );

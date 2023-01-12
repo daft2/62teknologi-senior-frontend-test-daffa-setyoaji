@@ -29,6 +29,12 @@ const BusinessAPI = {
 
     return data;
   },
+  getReviews: async ({ id }: { id: string }) => {
+    // https://api.yelp.com/v3/businesses/
+    const data = await axios.get(`/${id}/reviews`);
+
+    return data;
+  },
 };
 
 export default BusinessAPI;

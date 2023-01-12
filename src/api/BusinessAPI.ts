@@ -24,6 +24,11 @@ const BusinessAPI = {
 
     return data;
   },
+  getSingle: async ({ id }: { id: string }) => {
+    const data = await axios.get(`/${id}`);
+
+    return data;
+  },
 };
 
 export default BusinessAPI;

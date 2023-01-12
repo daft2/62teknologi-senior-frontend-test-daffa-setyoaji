@@ -3,10 +3,14 @@ import React from "react";
 import { Review } from "../types";
 
 type Props = {
-  reviews: Review[];
+  reviews: Review[] | null;
+  isLoading: boolean;
 };
 
-const ReviewSection: React.FC<Props> = ({ reviews }) => {
+const ReviewSection: React.FC<Props> = ({ reviews, isLoading }) => {
+  if (isLoading) return <div className="">Loading...</div>;
+  if (reviews === null) return <div className="">Reviews not found...</div>;
+
   return (
     <div className="my-4">
       <span>See what our customers say about us..</span>

@@ -19,21 +19,23 @@ const Slideshow: React.FC<Props> = ({ photos }) => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
+    const toggle = setInterval(() => {
       handleNext();
-    }, 3000);
-  }, [current]);
+    }, 5000);
+
+    return () => clearInterval(toggle);
+  });
 
   return (
     <div>
-      <div className="flex h-[30rem] relative">
+      <div className="flex h-[15rem] lg:h-[30rem] relative">
         {photos.map((photo, index) => (
           <img
             src={photo}
             alt="Business Photo"
             className={`${
               index !== current && "hidden"
-            } w-full h-[30rem] object-cover rounded`}
+            } w-full h-[15rem] lg:h-[30rem] object-cover rounded`}
           />
         ))}
         <button onClick={handlePrev}>

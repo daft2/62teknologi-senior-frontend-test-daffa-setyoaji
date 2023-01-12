@@ -23,9 +23,13 @@ const DescriptionSection: React.FC<Props> = ({ business }) => {
       </div>
       <div className="flex gap-2">
         <span>Categories:</span>
-        {business.categories.map((category) => {
-          if (business.categories.length > 1)
+        {business.categories.map((category, index) => {
+          if (
+            business.categories.length > 1 &&
+            index < business.categories.length - 1
+          )
             return <span>{category.title},</span>;
+
           return <span>{category.title}</span>;
         })}
       </div>

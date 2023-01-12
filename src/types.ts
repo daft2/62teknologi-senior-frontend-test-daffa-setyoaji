@@ -67,3 +67,17 @@ export type BusinessDetail = {
     use_case_text: string;
   };
 };
+
+export type Review = {
+  id: string;
+  url?: string;
+  text: string;
+  rating: number;
+  time_created: string;
+  user: {
+    id: string;
+    profile_url?: string;
+    image_url?: string;
+    name: string;
+  };
+};

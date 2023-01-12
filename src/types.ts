@@ -31,3 +31,8 @@ export type Location = {
   countery: string;
   state: string;
 };
+
+export type FilterOption = {
+  label: string;
+  value: string | number | null;
+};

@@ -21,17 +21,19 @@ const DescriptionSection: React.FC<Props> = ({ business }) => {
         </span>
         <span>Mon - Fri, 12.00 PM - 09.00 PM</span>
       </div>
-      <div className="flex gap-2">
+      <div className="flex flex-wrap lg:gap-2">
         <span>Categories:</span>
-        {business.categories.map((category, index) => {
-          if (
-            business.categories.length > 1 &&
-            index < business.categories.length - 1
-          )
-            return <span>{category.title},</span>;
+        <div className="">
+          {business.categories.map((category, index) => {
+            if (
+              business.categories.length > 1 &&
+              index < business.categories.length - 1
+            )
+              return <span>{category.title},</span>;
 
-          return <span>{category.title}</span>;
-        })}
+            return <span>{category.title}</span>;
+          })}
+        </div>
       </div>
       <div className="flex gap-2">
         <span>Price Range:</span>

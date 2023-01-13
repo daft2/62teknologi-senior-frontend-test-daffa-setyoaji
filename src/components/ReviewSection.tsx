@@ -29,11 +29,11 @@ const ReviewSection: React.FC<Props> = ({ reviews, isLoading }) => {
                   <div className="flex w-full flex-row items-center gap-2">
                     <div className={`w-[${reviewStar}px] overflow-hidden`}>
                       <div className="w-fit flex">
-                        <StarIcon className="w-5 h-5 fill-yellow-300 stroke-2 stroke-black" />
-                        <StarIcon className="w-5 h-5 fill-yellow-300 stroke-2 stroke-black" />
-                        <StarIcon className="w-5 h-5 fill-yellow-300 stroke-2 stroke-black" />
-                        <StarIcon className="w-5 h-5 fill-yellow-300 stroke-2 stroke-black" />
-                        <StarIcon className="w-5 h-5 fill-yellow-300 stroke-2 stroke-black" />
+                        <StarIcon className="min-w-5 min-h-5 w-5 h-5 fill-yellow-300 stroke-2 stroke-black" />
+                        <StarIcon className="min-w-5 min-h-5 w-5 h-5 fill-yellow-300 stroke-2 stroke-black" />
+                        <StarIcon className="min-w-5 min-h-5 w-5 h-5 fill-yellow-300 stroke-2 stroke-black" />
+                        <StarIcon className="min-w-5 min-h-5 w-5 h-5 fill-yellow-300 stroke-2 stroke-black" />
+                        <StarIcon className="min-w-5 min-h-5 w-5 h-5 fill-yellow-300 stroke-2 stroke-black" />
                       </div>
                     </div>
                   </div>

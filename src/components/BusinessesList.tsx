@@ -16,6 +16,13 @@ const BusinessesList: React.FC<Props> = ({ businesses, isLoading }) => {
       </div>
     );
 
+  if (businesses.length < 1)
+    return (
+      <div className="w-full h-[30rem] flex items-center justify-center">
+        <span className="text-2xl">Business not found.....</span>
+      </div>
+    );
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
       {businesses.map((business) => (
